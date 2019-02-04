@@ -9,5 +9,10 @@ def home():
 def tester():
     return "test success"
 
+@app.errorhandler(404)
+def contentNotFound(e):
+   return "alan please add details", 404
+
+
 if __name__ == "__main__":
    app.run(debug=True)
