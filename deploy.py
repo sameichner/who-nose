@@ -13,6 +13,9 @@ def tester():
 def contentNotFound(e):
    return "alan please add details", 404
 
+@app.route("/secret.html")
+def supersecret():
+   return render_template("secret.html")
 
 if __name__ == "__main__":
    app.run(debug=True)
