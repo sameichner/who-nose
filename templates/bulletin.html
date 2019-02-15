@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Bored Bulletin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+    
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div id="topBar" style="background-color:#123456">
+        <h1>The Bored Bulletin</h1>
+        <div id="loginBar" align=right>
+            <!--make a login thing i'm not sure how to do that yet-->
+        </div>
+    </div>
+    <div style="background-color:#FFFFFF; height:200px"></div>
+    <div id="board">
+        <template id="post-template">
+            <div class="post">
+                <p>placeholder text</p>
+            </div>
+        </template>
+        
+    </div>
+    <div id="newpost" class="post">
+                <h2>Submit a new post!</h>
+                <br>
+                Post Name: <input type="text" id="newpostname" value="Post Name">
+                <br>
+                <textarea id=newpostbody rows="5"></textarea>
+                <br>
+                <input type="button" id="newpostsubmit" value="Submit">
+    </div>
+    <!--
+        <canvas id="whiteboard" width="500px" height="1500px" style="border: 5px solid blue"></canvas>
+        hi
+        <script src="static/old bulletin.js"></script>
+    -->
+    <script src="static/bulletin.js"></script>
+            
+</body>
+</html>

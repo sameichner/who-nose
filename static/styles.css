@@ -1,0 +1,28 @@
+#topBar {
+position: fixed;
+left: 0;
+right: 0;
+top: 0;
+}
+
+.post {
+  border-radius: 25px;
+  background: #FFFF88;
+  margin: 2%;
+  padding: 2%;
+  width: 42%;
+}
+
+board {
+  width: 100%;
+  background: #ABCDEF;
+}
+
+#newpostbody {
+  width: 90%;
+}
+
+#newpostsubmit {
+  align: bottom;
+
+}
