@@ -20,19 +20,22 @@
     <div id="board">
         <template id="post-template">
             <div class="post">
-                <p>placeholder text</p>
+                <h2 id="posttitle">Placeholder title</h2>
+                <p id="postcontent">Placeholder body</p>
+                <img class="clockicon" id="posttime" src="static/images/clock.png" title="time posted unknown">
             </div>
         </template>
-        
     </div>
     <div id="newpost" class="post">
-                <h2>Submit a new post!</h>
+                <h2>Submit a new post!
                 <br>
                 Post Name: <input type="text" id="newpostname" value="Post Name">
+                </h2>
                 <br>
-                <textarea id=newpostbody rows="5"></textarea>
+                <textarea id="newpostbody" rows="5"></textarea>
                 <br>
                 <input type="button" id="newpostsubmit" value="Submit">
+                <input type="button" id="newpostcancel" value="Clear">
     </div>
     <!--
         <canvas id="whiteboard" width="500px" height="1500px" style="border: 5px solid blue"></canvas>
