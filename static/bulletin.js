@@ -1,5 +1,6 @@
 //to be done later
 alert("javascript is connected successfully");
+var addNL = false;
 
 document.getElementById("newpostsubmit").onclick = function () {
     var name = document.getElementById("newpostname").value;
@@ -21,5 +22,8 @@ function post(name,time,content){
     temp.content.getElementById("postcontent").textContent = content;
     temp.content.getElementById("posttime").title = time;
 
-    document.getElementById("board").appendChild(temp.content.querySelector("div").cloneNode(true), true);
+    var board = document.getElementById("board");
+    board.appendChild(temp.content.querySelector("div").cloneNode(true), true);
+    if (addNL) board.appendChild(document.createElement("br"));
+    addNL=!addNL;
 }

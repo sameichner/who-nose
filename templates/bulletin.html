@@ -6,17 +6,21 @@
     <title>The Bored Bulletin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
-    
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/bulletin.css">
 </head>
 <body>
     <div id="topBar" style="background-color:#123456">
-        <h1>The Bored Bulletin</h1>
-        <div id="loginBar" align=right>
+        <h1 style="color:#FFFFFF">The Bored Bulletin</h1>
+        <div id="loginBar">
             <!--make a login thing i'm not sure how to do that yet-->
         </div>
     </div>
-    <div style="background-color:#FFFFFF; height:200px"></div>
+    <div style="background-color:#FFFFFF" id="topBarCompensator">
+        <h1>The Bored Bulletin</h1>
+        <div id="loginBarCompensator">
+            <!--hangs out under topbar-->
+        </div>
+    </div>
     <div id="board">
         <template id="post-template">
             <div class="post">
@@ -26,6 +30,7 @@
             </div>
         </template>
     </div>
+    <div style="background: linear-gradient(#ABCDEF, #123456)">
     <div id="newpost" class="post">
                 <h2>Submit a new post!
                 <br>
@@ -36,6 +41,7 @@
                 <br>
                 <input type="button" id="newpostsubmit" value="Submit">
                 <input type="button" id="newpostcancel" value="Clear">
+    </div>
     </div>
     <!--
         <canvas id="whiteboard" width="500px" height="1500px" style="border: 5px solid blue"></canvas>

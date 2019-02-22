@@ -1,8 +1,21 @@
+body {
+  background: #123456;
+  margin: 0px;
+
+}
+
 #topBar {
 position: fixed;
 left: 0;
 right: 0;
 top: 0;
+}
+
+#topBarCompensator {
+  background:#ABCDEF;
+  left:0;
+  right:0;
+  top: 0;
 }
 
 .post {
@@ -11,11 +24,16 @@ top: 0;
   margin: 2%;
   padding: 2%;
   width: 42%;
+  display: inline-block;
 }
 
-board {
+#board {
   width: 100%;
   background: #ABCDEF;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 #newpostbody {
@@ -23,7 +41,8 @@ board {
 }
 
 .clockicon {
-  right: 0px;
+  position: relative;
+  float: right;
   bottom: 0px;
   height: 5%;
   width: 5%;
