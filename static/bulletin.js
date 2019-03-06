@@ -28,21 +28,26 @@ function post(name,time,content){
 }
 
 function addFromLocal(){
+    console.log("begining read process");
     let myStorage = window.localStorage;
     let storageItem = myStorage.getItem("bored-bulletin-posts");
     if (storageItem == null){
-        //alert("storage null");
+        alert("storage null");
         return;
     }
+    console.log(storageItem);
     let arr2d = fromCSVEncoding(storageItem);
-    for (arr1d in arr2d) {
+    console.log(arr2d);
+    for (const id in arr2d) {
+        const arr1d = arr2d[id];
         if (arr1d.length >= 3) post(arr1d[0],arr1d[1],arr1d[2]);
     }
+    console.log("reading complete");
 }
 
 function addToLocal(name,date,content){
     var output = toLineCSVEncoding([name,date,content]);
-    //console.log("CSVEncoded as: "+output);
+    console.log("CSVEncoded as: "+output);
     let myStorage = window.localStorage;
     let storageItem = myStorage.getItem("bored-bulletin-posts");
     if (storageItem != null) {
@@ -59,24 +64,26 @@ function toLineCSVEncoding(line){
         output+=toSingularCSVEncoding(line[i]);
         if (i<line.length-1) output+=",";
     }
-    //console.log("LineCSV ran: "+line);
+    console.log("LineCSV ran "+line+" and outputted "+output);
     return output;
 }
 
 function toSingularCSVEncoding(content){
+var output = content;
 if (content.includes("\n") || content.includes(",") || content.includes("\"")){
-    content.replace(/\"/g,"\"\"");
-    content = "\""+content+"\"";
+    output = content.split("\"").join("\"\"");
+    output = "\""+output+"\""; 
 }
-//console.log("SingularCSV ran: "+content);
-return content;
+console.log("SingularCSV ran "+content+" and outputted "+output);
+return output;
 }
 
 function fromCSVEncoding(encoded){
     var output = [[""]];
     var printquotes = false;
     var printspecial = false;
-    for (character in encoded){
+    for (const id in encoded){
+        const character = encoded[id];
         switch (character){
             case '\"':{
                 if (!printquotes && !printspecial) {
@@ -97,12 +104,16 @@ function fromCSVEncoding(encoded){
             }
             case ',':{
                 if (!printspecial) {
+                    printspecial = false;
+                    printquotes = false;
                     output[output.length-1][output[output.length-1].length] = "";
                     break;
                 }
             }
             case '\n':{
                 if (!printspecial) {
+                    printspecial = false;
+                    printquotes = false;
                     output[output.length] = [""];
                     break;
                 }
