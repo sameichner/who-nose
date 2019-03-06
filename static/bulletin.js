@@ -50,6 +50,7 @@ function addToLocal(name,date,content){
         output = storageItem + output;
     }
     myStorage.setItem("bored-bulletin-posts",output);
+    myStorage.getItem("bored-bulletin-posts"); //apparently chrome wants this line why
 }
 
 function toLineCSVEncoding(line){
