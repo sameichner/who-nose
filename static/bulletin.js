@@ -28,26 +28,25 @@ function post(name,time,content){
 }
 
 function addFromLocal(){
-    console.log("begining read process");
+    
     let myStorage = window.localStorage;
     let storageItem = myStorage.getItem("bored-bulletin-posts");
     if (storageItem == null){
-        alert("storage null");
         return;
     }
-    console.log(storageItem);
+    
     let arr2d = fromCSVEncoding(storageItem);
-    console.log(arr2d);
+    
     for (const id in arr2d) {
         const arr1d = arr2d[id];
         if (arr1d.length >= 3) post(arr1d[0],arr1d[1],arr1d[2]);
     }
-    console.log("reading complete");
+    
 }
 
 function addToLocal(name,date,content){
     var output = toLineCSVEncoding([name,date,content]);
-    console.log("CSVEncoded as: "+output);
+    
     let myStorage = window.localStorage;
     let storageItem = myStorage.getItem("bored-bulletin-posts");
     if (storageItem != null) {
@@ -64,7 +63,7 @@ function toLineCSVEncoding(line){
         output+=toSingularCSVEncoding(line[i]);
         if (i<line.length-1) output+=",";
     }
-    console.log("LineCSV ran "+line+" and outputted "+output);
+    
     return output;
 }
 
@@ -74,7 +73,7 @@ if (content.includes("\n") || content.includes(",") || content.includes("\"")){
     output = content.split("\"").join("\"\"");
     output = "\""+output+"\""; 
 }
-console.log("SingularCSV ran "+content+" and outputted "+output);
+
 return output;
 }
 
