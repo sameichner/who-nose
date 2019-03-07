@@ -124,3 +124,9 @@ function fromCSVEncoding(encoded){
     }
     return output;
 }
+
+function reset(){
+    let myStorage = window.localStorage;
+    myStorage.clear();
+    location.reload();
+}
